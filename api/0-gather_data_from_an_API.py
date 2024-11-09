@@ -14,12 +14,12 @@ def employee_statistics(employee_id):
     Returns:
         - Employee data (complete + incomplete tasks)
     """
-    if len(sys.argv) < 2:
+    if len(argv) < 2:
         raise ValueError("Plase input empolyee id.")
     elif not isinstance(employee_id, int):
         raise TypeError("Employee id must be an integer.")
     else:
-        employee_id = int(sys.argv[1])
+        employee_id = int(argv[1])
 
     """ Method: Build URL's """
     base = "https://jsonplaceholder.typicode.com"
