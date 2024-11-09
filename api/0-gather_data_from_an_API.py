@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """ Method: Return information using REST API """
-from sys import argv
 import requests
-import sys
+from sys import argv
 
 
 def employee_statistics(employee_id):
