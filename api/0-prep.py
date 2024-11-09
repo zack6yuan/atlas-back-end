@@ -23,18 +23,25 @@ def employee_statistics(employee_id):
         employee_id = sys.argv[1]
 
     """ Method: Build URL's """
-    root = "https://jsonplaceholder.typicode.com"
-    employee_name = requests.get(
-        "{}/user/{}".format(root, employee_id)).json()
-    complete = requests.get(
-        "https://{}/user/{}/complete".format(root, employee_id)).json()
-    incomplete = requests.get(
-        "https://{}/user/{}/incomplete".format(root, employee_id)).json()
+    base = "https://jsonplaceholder.typicode.com"
+    users = ("{}/users/".format(base))
+    todos = ("{}/todos/".format(base))
 
-    """ Method: Return update """
-    print("Employee {} is done with tasks {}/{}".format(
-        employee_name, complete, incomplete))
+    users_response = requests.get(users)
+    if users_response.status_code == 200:
+        username = users_response.json()
+    else:
+        print("GET request failed...")
+
+    todos_response = requests.get(todos)
+    if todos_response.status_code == 200:
+        todo_list = todos_response.json()
+    else:
+        print("GET request failed...")
+
+    
+    if __name__ == "__main__":
+        employee_statistics(employee_id)
 
 
-if __name__ == "__main__":
-    employee_statistics()
+    
