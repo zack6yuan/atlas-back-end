@@ -4,6 +4,7 @@ import sys
 from sys import argv
 import requests
 
+
 def employee_statistics(employee_id):
     """ Method: Format employee information from input
     Arguments:
@@ -23,9 +24,9 @@ def employee_statistics(employee_id):
 
     """ Method: Build URL's """
     root = "https://jsonplaceholder.typicode.com"
-    employee_name = requests.get("https://jsonplaceholder.typicode.com/user/{}".format(employee_id)).json()
-    complete = requests.get("https://jsonplaceholder.typucode.com/user/{}/complete".format*(employee_id)).json()
-    incomplete = requests.get("https://jsonplaceholder.typicode.com/user/{}/incomplete".format(employee_id)).json()
+    employee_name = requests.get("{}/user/{}".format(root, employee_id)).json()
+    complete = requests.get("https://{}/user/{}/complete".format*(root, employee_id)).json()
+    incomplete = requests.get("https://{}/user/{}/incomplete".format(root, employee_id)).json()
 
     """ Method: Return update """
     print("Employee {} is done with tasks {}/{}".format(employee_name, complete, incomplete))
@@ -33,3 +34,4 @@ def employee_statistics(employee_id):
 
     if __name__ == "__main__":
         employee_statistics()
+    
