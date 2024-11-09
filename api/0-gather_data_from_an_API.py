@@ -39,6 +39,6 @@ def employee_statistics(employee_id):
     else:
         print("GET request failed...")
 
-    
-    if __name__ == "__main__":
-        employee_statistics(employee_id)
+
+if __name__ == "__main__":
+    employee_statistics()
