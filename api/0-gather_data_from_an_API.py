@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ Method: Return information using REST API """
-import sys
 from sys import argv
 import requests
-
+import sys
 
 def employee_statistics(employee_id):
     """ Method: Format employee information from input
@@ -20,7 +19,7 @@ def employee_statistics(employee_id):
     elif not isinstance(employee_id, int):
         raise TypeError("Employee id must be an integer.")
     else:
-        employee_id = sys.argv[1]
+        employee_id = int(sys.argv[1])
 
     """ Method: Build URL's """
     base = "https://jsonplaceholder.typicode.com"
