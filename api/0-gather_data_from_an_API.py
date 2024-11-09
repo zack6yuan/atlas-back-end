@@ -31,12 +31,24 @@ def employee_statistics(employee_id):
         username = users_response.json()
     else:
         print("GET request failed...")
-
+                   
     todos_response = requests.get(todos)
     if todos_response.status_code == 200:
         todo_list = todos_response.json()
     else:
         print("GET request failed...")
+    incomplete = todo_list
+
+    complete = 0
+    incomplete = 0
+    for todo in todo_list:
+        if todo["completed"]:
+            complete += 1
+        else:
+            incomplete += 1
+
+
+    print(f"Employee {username} is done with tasks ({incomplete}/{complete}):")
 
 
 if __name__ == "__main__":
