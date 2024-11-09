@@ -25,7 +25,7 @@ def employee_statistics(employee_id):
     """ Method: Build URL's """
     root = "https://jsonplaceholder.typicode.com"
     employee_name = requests.get("{}/user/{}".format(root, employee_id)).json()
-    complete = requests.get("https://{}/user/{}/complete".format*(root, employee_id)).json()
+    complete = requests.get("https://{}/user/{}/complete".format(root, employee_id)).json()
     incomplete = requests.get("https://{}/user/{}/incomplete".format(root, employee_id)).json()
 
     """ Method: Return update """
