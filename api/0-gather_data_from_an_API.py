@@ -24,12 +24,16 @@ def employee_statistics(employee_id):
 
     """ Method: Build URL's """
     root = "https://jsonplaceholder.typicode.com"
-    employee_name = requests.get("{}/user/{}".format(root, employee_id)).json()
-    complete = requests.get("https://{}/user/{}/complete".format(root, employee_id)).json()
-    incomplete = requests.get("https://{}/user/{}/incomplete".format(root, employee_id)).json()
+    employee_name = requests.get(
+        "{}/user/{}".format(root, employee_id)).json()
+    complete = requests.get(
+        "https://{}/user/{}/complete".format(root, employee_id)).json()
+    incomplete = requests.get(
+        "https://{}/user/{}/incomplete".format(root, employee_id)).json()
 
     """ Method: Return update """
-    print("Employee {} is done with tasks {}/{}".format(employee_name, complete, incomplete))
+    print("Employee {} is done with tasks {}/{}".format(
+        employee_name, complete, incomplete))
 
 
     if __name__ == "__main__":
