@@ -4,6 +4,7 @@ from sys import argv
 import requests
 import sys
 
+
 def employee_statistics(employee_id):
     """ Method: Format employee information from input
     Arguments:
