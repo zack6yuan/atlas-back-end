@@ -4,6 +4,7 @@ import sys
 from sys import argv
 import requests
 
+
 def employee_statistics(employee_id):
     """ Method: Format employee information from input
     Arguments:
@@ -35,5 +36,5 @@ def employee_statistics(employee_id):
         employee_name, complete, incomplete))
 
 
-    if __name__ == "__main__":
-        employee_statistics()
+if __name__ == "__main__":
+    employee_statistics()
