@@ -50,4 +50,4 @@ def employee_statistics(employee_id):
 
 
 if __name__ == "__main__":
-    employee_statistics()
+    employee_statistics(int(argv[1]))
