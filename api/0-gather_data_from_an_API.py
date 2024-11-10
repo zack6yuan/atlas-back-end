@@ -38,12 +38,12 @@ def employee_statistics(employee_id):
             print("Get request failed...")
 
     
-    complete = 0
-    incomplete = 0
-    for todo in todo_total:
-        if todo == "completed":
-            complete += 1
-        else:
-            incomplete += complete
+        complete = 0
+        incomplete = 0
+        for todo in todo_total:
+            if todo == "completed":
+                complete += 1
+            else:
+                incomplete += complete
 
-    print(f"Employee {username} is done with tasks({incomplete}/{complete})")
+        print(f"Employee {username} is done with tasks({incomplete}/{complete})")
