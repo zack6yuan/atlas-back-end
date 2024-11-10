@@ -19,7 +19,7 @@ def employee_statistics(employee_id):
             raise TypeError("Employee ID must be an integer.")
         elif len(argv) < 2:
             raise ValueError("Please enter Employee ID.")
-        employee_id = int(argv[0])
+        employee_id = int(argv[1])
 
         base = "https://jsonplaceholder.typicode.com"
 
