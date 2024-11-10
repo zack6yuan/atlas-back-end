@@ -40,7 +40,7 @@ def employee_statistics(employee_id):
         complete = 0
         incomplete = 0
         for todo in todo_total:
-            if todo == "completed":
+            if todo["completed"]:
                 complete += 1
             else:
                 incomplete += complete
