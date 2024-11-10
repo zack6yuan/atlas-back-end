@@ -45,5 +45,6 @@ def employee_statistics(employee_id):
             else:
                 incomplete += complete
 
-        print(f"Employee {username} is done with tasks, "
-        f"{incomplete}/{complete})")
+        print("Employee {} is done with tasks({}/{}):".format(
+            username, complete, incomplete
+        ))
