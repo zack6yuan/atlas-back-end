@@ -29,7 +29,7 @@ def employee_statistics(employee_id):
             username = user_response.json()
         else:
             print("Get request failed...")
-        
+
         todo = "{}/todos".format(base)
         todo_response = requests.get(todo)
         if todo_response.status_code == 200:
@@ -37,7 +37,6 @@ def employee_statistics(employee_id):
         else:
             print("Get request failed...")
 
-    
         complete = 0
         incomplete = 0
         for todo in todo_total:
@@ -47,4 +46,4 @@ def employee_statistics(employee_id):
                 incomplete += complete
 
         print(f"Employee {username} is done with tasks, "
-            f"{incomplete}/{complete})")
+        f"{incomplete}/{complete})")
