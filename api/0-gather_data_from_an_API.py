@@ -43,7 +43,7 @@ def employee_statistics(employee_id):
             if todo["completed"]:
                 complete += 1
             else:
-                incomplete += complete
+                incomplete += 1
 
         print("Employee {} is done with tasks({}/{}):".format(
             username, complete, incomplete
