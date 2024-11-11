@@ -37,12 +37,7 @@ def employee_statistics(employee_id: int):
             if todo['completed'] is True:
                 complete_tasks += 1
 
-        print("Employee {} is done with tasks({}/{}):".format(
-            employee_name,
-            complete_tasks,
-            total_tasks
-        ))
-
+        csv_convert = "{}.csv",format(employee_id)
 
 if __name__ == "__main__":
     if len(argv) < 2:
