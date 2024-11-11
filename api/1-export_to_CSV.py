@@ -23,8 +23,6 @@ def employee_statistics(employee_id: int):
         print("Employee not found...")
         return
 
-    
-
     complete_tasks = 0
     total_tasks = 0
     # filter tasks based on the specific user.
@@ -38,6 +36,7 @@ def employee_statistics(employee_id: int):
                 complete_tasks += 1
 
         csv_convert = "{}.csv".format(employee_id)
+
 
 if __name__ == "__main__":
     if len(argv) < 2:
