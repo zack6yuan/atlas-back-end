@@ -34,10 +34,10 @@ def employee_statistics(employee_id: int):
             if todo['completed'] is True:
                 complete_tasks += 1
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        employee_name,
-        complete_tasks,
-        total_tasks
+        print("Employee {} is done with tasks({}/{}):".format(
+            employee_name,
+            complete_tasks,
+            total_tasks
     ))
 
     for todo in todos_data:
