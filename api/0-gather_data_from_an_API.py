@@ -40,6 +40,9 @@ def employee_statistics(employee_id: int):
         total_tasks
     ))
 
+    for todo in todos_data:
+        print("/t {}".format(todo['title']))
+
 
 if __name__ == "__main__":
     if len(argv) < 2:
