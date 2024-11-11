@@ -31,7 +31,7 @@ def employee_statistics(employee_id: int):
         todos_data = todos_request.json()
         total_tasks = len(todos_data)
         for todo in todos_data:
-            if todo['completed'] == True:
+            if todo['completed'] is True:
                 complete_tasks += 1
 
     print("Employee {} is done with tasks({}/{}):".format(
