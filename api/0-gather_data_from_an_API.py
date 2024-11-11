@@ -28,14 +28,14 @@ def employee_statistics(employee_id):
         if user_response.status_code == 200:
             username = user_response.json()
         else:
-            print("Get request failed...")
+            return
 
         todo = "{}/todos".format(base)
         todo_response = requests.get(todo)
         if todo_response.status_code == 200:
             todo_total = todo_response.json()
         else:
-            print("Get request failed...")
+            return
 
         complete = 0
         incomplete = 0
