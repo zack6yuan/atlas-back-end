@@ -24,7 +24,6 @@ def employee_statistics(employee_id: int):
         return
 
     complete_tasks = 0
-    total_tasks = 0
     # filter tasks based on the specific user.
     todos_url = "{}/users/{}/todos".format(base, employee_id)
     todos_request = requests.get(todos_url)
@@ -34,6 +33,16 @@ def employee_statistics(employee_id: int):
         for todo in todos_data:
             if todo['completed'] is True:
                 complete_tasks += 1
+
+    json_list = [{
+        "task": todo.get('title'),
+        "completed": todo.get('completed'),
+        "username": employee_name
+    }]
+
+    json_convert = ("{}.json".format(employee_id))
+    with open(json_convert, mode='w') as temp:
+        json.dump(json_list, temp)
 
 
 if __name__ == "__main__":
