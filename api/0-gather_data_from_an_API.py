@@ -28,10 +28,14 @@ def employee_statistics(employee_id: int):
     if todos_request.status_code == 200:
         todos_data = todos_request.json()
     for todo in todos_data:
-        if todo['completed'] == False:
+        if todo['completed'] is False:
             incomplete_tasks += 1
 
-    print(f"Employee {employee_name} is done with tasks({incomplete_tasks}/{total_tasks})")
+    print("Employee {} is done with tasks({}/{}):".format(
+        employee_name,
+        incomplete_tasks,
+        total_tasks
+    ))
 
 
 if __name__ == "__main__":
