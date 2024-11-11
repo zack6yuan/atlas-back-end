@@ -23,7 +23,7 @@ def employee_statistics(employee_id):
 
         base = "https://jsonplaceholder.typicode.com"
 
-        user = "{}/users".format(base)
+        user = "{}/users/{}".format(base)
         user_response = requests.get(user)
         if user_response.status_code == 200:
             username = user_response.json()
