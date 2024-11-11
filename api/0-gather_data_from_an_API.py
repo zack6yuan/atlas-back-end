@@ -15,11 +15,19 @@ def employee_statistics(employee_id):
         - Employee data (complete + incomplete tasks)
     """
     if not isinstance(employee_id, int):
-        raise TypeError("Employee ID must be an integer.")
-    elif len(argv) < 2:
-        raise ValueError("Please enter Employee ID.")
+        raise TypeError("Employee ID must be an integer")
+    try:
+        employee_id = int(argv[1])
+    except len(argv) < 2:
+        raise ValueError("Plase enter Employee ID")
+    
+    if len(argv) < 2:
+        raise ValueError("Please enter Employee ID...")
+    elif not isinstance(employee_id, int):
+        raise TypeError("Employee ID must be an integer...")
     else:
         employee_id = int(argv[1])
+
 
     base = "https://jsonplaceholder.typicode.com"
 
@@ -49,3 +57,7 @@ def employee_statistics(employee_id):
     print("Employee {} is done with tasks({}/{}):".format(
         current_employee, complete, incomplete
     ))
+
+
+if __name__ == "__main__":
+    employee_statistics()
