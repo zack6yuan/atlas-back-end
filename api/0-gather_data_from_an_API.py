@@ -22,7 +22,7 @@ def employee_statistics(employee_id: int):
         print("Employee not found...")
         return
 
-    incomplete_tasks = 0
+    complete_tasks = 0
     total_tasks = 0
     # filter tasks based on the specific user.
     todos_url = "{}/users/{}/todos".format(base, employee_id)
@@ -31,17 +31,14 @@ def employee_statistics(employee_id: int):
         todos_data = todos_request.json()
         total_tasks = len(todos_data)
         for todo in todos_data:
-            if todo['completed'] is False:
-                incomplete_tasks += 1
+            if todo['completed'] is True:
+                complete_tasks += 1
 
-    if total_tasks == 0:
-        print("Employee has no tasks")
-    else:
-        print("Employee {} is done with tasks({}/{}):".format(
-            employee_name,
-            incomplete_tasks,
-            total_tasks
-        ))
+    print("Employee {} is done with tasks({}/{}):".format(
+        employee_name,
+        complete_tasks,
+        total_tasks
+    ))
 
 
 if __name__ == "__main__":
