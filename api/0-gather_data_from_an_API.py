@@ -41,7 +41,7 @@ def employee_statistics(employee_id: int):
     ))
 
     for todo in todos_data:
-        print("/t {}".format(todo['title']))
+        print("\t {}".format(todo['title']))
 
 
 if __name__ == "__main__":
