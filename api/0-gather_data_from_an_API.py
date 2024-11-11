@@ -38,10 +38,10 @@ def employee_statistics(employee_id: int):
             employee_name,
             complete_tasks,
             total_tasks
-    ))
+        ))
 
-        for todo in todos_data:
-            print("\t {}".format(todo['title']))
+    for todo in todos_data:
+        print("\t {}".format(todo['title']))
 
 
 if __name__ == "__main__":
