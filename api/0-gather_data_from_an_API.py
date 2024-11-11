@@ -34,11 +34,14 @@ def employee_statistics(employee_id: int):
             if todo['completed'] is False:
                 incomplete_tasks += 1
 
-    print("Employee {} is done with tasks({}/{}):".format(
-        employee_name,
-        incomplete_tasks,
-        total_tasks
-    ))
+    if total_tasks == 0:
+        print("Employee has no tasks")
+    else:
+        print("Employee {} is done with tasks({}/{}):".format(
+            employee_name,
+            incomplete_tasks,
+            total_tasks
+        ))
 
 
 if __name__ == "__main__":
