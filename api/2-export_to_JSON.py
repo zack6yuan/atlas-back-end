@@ -23,8 +23,6 @@ def employee_statistics(employee_id: int):
         print("Employee not found...")
         return
 
-    
-
     complete_tasks = 0
     total_tasks = 0
     # filter tasks based on the specific user.
