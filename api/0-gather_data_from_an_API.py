@@ -31,8 +31,7 @@ def employee_statistics(employee_id: int):
         if todo['completed'] == False:
             incomplete_tasks += 1
 
-    print(f"Employee {employee_name} is done with tasks(
-          {incomplete_tasks}/{total_tasks})")
+    print(f"Employee {employee_name} is done with tasks({incomplete_tasks}/{total_tasks})")
 
 
 if __name__ == "__main__":
