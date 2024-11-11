@@ -43,8 +43,9 @@ def employee_statistics(employee_id: int):
 if __name__ == "__main__":
     if len(argv) < 2:
         print("Employee ID not found...")
-    try:
-        employee_id = int(argv[1])
-    except TypeError:
-        print("Employee ID must be an integer...")
-    employee_statistics(employee_id)
+    else:
+        try:
+            employee_id = int(argv[1])
+            employee_statistics(employee_id)
+        except ValueError:
+            print("Please enter Employee ID as an integer.")
