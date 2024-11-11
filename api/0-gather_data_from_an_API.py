@@ -24,12 +24,13 @@ def employee_statistics(employee_id: int):
 
     incomplete_tasks = 0
     total_tasks = 0
-    todos_url = "{}/todos/".format(base)
+    # filter tasks based on the specific user.
+    todos_url = "{}/todos?userID={}".format(base, employee_id)
     todos_request = requests.get(todos_url)
     if todos_request.status_code == 200:
         todos_data = todos_request.json()
         total_tasks = len(todos_data)
-        for todo in todos_data:
+        for todo in todos_data: 
             if todo['completed'] is False:
                 incomplete_tasks += 1
 
