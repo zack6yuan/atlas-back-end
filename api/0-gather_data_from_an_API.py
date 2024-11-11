@@ -4,59 +4,35 @@ import requests
 from sys import argv
 
 
-def employee_statistics(employee_id):
+def employee_statistics(employee_id: int):
     """ Method: Format employee information from input
     Arguments:
         - employee_id(int)
-    Raises:
-        - ValueError - when employee_id is not provided.
-        - TypeError - when employee_id is not type "int"
     Returns:
         - Employee data (complete + incomplete tasks)
     """
-    if not isinstance(employee_id, int):
-        raise TypeError("Employee ID must be an integer")
-    try:
-        employee_id = int(argv[1])
-    except len(argv) < 2:
-        raise ValueError("Plase enter Employee ID")
-    
-    if len(argv) < 2:
-        raise ValueError("Please enter Employee ID...")
-    elif not isinstance(employee_id, int):
-        raise TypeError("Employee ID must be an integer...")
-    else:
-        employee_id = int(argv[1])
-
-
     base = "https://jsonplaceholder.typicode.com"
 
-    user = "{}/users/{}".format(base, employee_id)
-    user_response = requests.get(user)
-    if user_response.status_code == 200:
-        username = user_response.json()
-        current_employee = username['name']
+    employee_url = "{}/users/{}".format(base, employee_id)
+    employee_request = requests.get(employee_url)
+    if employee_request.status_code == 200:
+        employee_data = employee_request.json()
+        employee_name = employee_data.get('name')
     else:
-        return
+        print("Employee not found...")
 
-    todo = "{}/todos".format(base)
-    todo_response = requests.get(todo)
-    if todo_response.status_code == 200:
-        todo_total = todo_response.json()
-    else:
-        return
+    incomplete_tasks = 0
+    total_tasks = len(todos_data)
+    todos_url = "{}/todos/".format(base)
+    todos_request = requests.get(todos_url)
+    if todos_request.status_code == 200:
+        todos_data = todos_request.json()
+    for todo in todos_data:
+        if todo['completed'] == False:
+            incomplete_tasks += 1
 
-    complete = 0
-    incomplete = 0
-    for todo in todo_total:
-        if todo["completed"]:
-            complete += 1
-        else:
-            incomplete += 1
-
-    print("Employee {} is done with tasks({}/{}):".format(
-        current_employee, complete, incomplete
-    ))
+    print(f"Employee {employee_name} is done with tasks(
+          {incomplete_tasks}/{total_tasks})")
 
 
 if __name__ == "__main__":
