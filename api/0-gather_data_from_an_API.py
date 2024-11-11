@@ -18,14 +18,16 @@ def employee_statistics(employee_id):
         raise TypeError("Employee ID must be an integer.")
     elif len(argv) < 2:
         raise ValueError("Please enter Employee ID.")
-    employee_id = int(argv[1])
+    else:
+        employee_id = int(argv[1])
 
     base = "https://jsonplaceholder.typicode.com"
 
-    user = "{}/users/{}".format(base)
+    user = "{}/users/{}".format(base, employee_id)
     user_response = requests.get(user)
     if user_response.status_code == 200:
         username = user_response.json()
+        current_employee = username['name']
     else:
         return
 
@@ -45,9 +47,5 @@ def employee_statistics(employee_id):
             incomplete += 1
 
     print("Employee {} is done with tasks({}/{}):".format(
-        username, complete, incomplete
+        current_employee, complete, incomplete
     ))
-
-
-if __name__ == "__main__":
-    employee_statistics(employee_id)
