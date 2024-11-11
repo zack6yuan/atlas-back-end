@@ -20,8 +20,10 @@ def employee_statistics(employee_id: int):
         employee_name = employee_data.get('name')
     else:
         print("Employee not found...")
+        return
 
     incomplete_tasks = 0
+    total_tasks = 0
     todos_url = "{}/todos/".format(base)
     todos_request = requests.get(todos_url)
     if todos_request.status_code == 200:
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     if len(argv) < 2:
         print("Employee ID not found...")
     try:
-        employee_id = argv[1]
+        employee_id = int(argv[1])
     except TypeError:
         print("Employee ID must be an integer...")
     employee_statistics(employee_id)
