@@ -34,11 +34,22 @@ def employee_statistics(employee_id: int):
             if todo['completed'] is True:
                 complete_tasks += 1
 
-    json_list = [{
-        "task": todo['title'],
-        "completed": todo['completed'],
-        "username": employee_name
-    } for todo in todos_data]
+    """ Method: Export data in JSON format
+    Returns:
+        - JSON formatted data:
+            - employee_id(str)
+            - task title
+            - completed (true or false)
+            - employee name
+    """
+    json_list = {
+            (employee_id): [{
+            "task": todo['title'],
+            "completed": todo['completed'],
+            "username": employee_name
+        } for todo in todos_data]
+    }
+    
 
     json_convert = ("{}.json".format(employee_id))
     with open(json_convert, mode='w') as temp:
