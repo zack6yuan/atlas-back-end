@@ -43,8 +43,8 @@ def employee_statistics(employee_id: int):
             [employee_id,
             employee_name,
             todo['completed'],
-            total_tasks]
-        )
+            total_tasks
+        ])
         writer.writerows(csv_data)
 
 
