@@ -43,10 +43,10 @@ def employee_statistics(employee_id: int):
     - employee name
     """
     json_list = {
-            (employee_id): [{
-            "task": todo['title'],
-            "completed": todo['completed'],
-            "username": employee_name
+        (employee_id): [{
+        "task": todo['title'],
+        "completed": todo['completed'],
+        "username": employee_name
         } for todo in todos_data]
     }
     
