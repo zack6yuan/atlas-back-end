@@ -39,7 +39,12 @@ def employee_statistics(employee_id: int):
     csv_convert = "{}.csv".format(employee_id)
     with open(csv_convert, mode='w', newline=' ') as temp:
         writer = csv.writer(temp, quoting=csv.QUOTE_ALL)
-        csv_data.append([employee_id, employee_name, todo['completed'], total_tasks])
+        csv_data.append(
+            [employee_id,
+            employee_name,
+            todo['completed'],
+            total_tasks]
+            )
         writer.writerows(csv_data)
 
 
