@@ -35,8 +35,8 @@ def employee_statistics(employee_id: int):
                 complete_tasks += 1
 
     json_list = [{
-        "task": todo.get('title'),
-        "completed": todo.get('completed'),
+        "task": todo['title'],
+        "completed": todo['completed'],
         "username": employee_name
     }]
 
