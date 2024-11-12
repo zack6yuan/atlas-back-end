@@ -19,7 +19,7 @@ def employee_statistics(employee_id: int):
     if employee_request.status_code == 200:
         employee_data = employee_request.json()
         employee_name = employee_data.get('name')
-    else:
+    else:    
         print("Employee not found...")
         return
 
@@ -35,7 +35,12 @@ def employee_statistics(employee_id: int):
             if todo['completed'] is True:
                 complete_tasks += 1
 
-        csv_convert = "{}.csv".format(employee_id)
+    csv_data = []
+    csv_convert = "{}.csv".format(employee_id)
+    with open(csv_convert, mode='w', newline=' ') as temp:
+        writer = csv.writer(temp, quoting=csv.QUOTE_ALL)
+        csv_data.append([employee_id, employee_name, todo['completed'], total_tasks])
+        writer.writerows(csv_data)
 
 
 if __name__ == "__main__":
