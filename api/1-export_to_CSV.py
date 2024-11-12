@@ -32,9 +32,9 @@ def employee_statistics(employee_id: int):
         for todo in todos_data:
             if todo['completed'] is True:
                 complete_tasks += 1
-
-    csv_convert = "{}.csv".format(employee_id)
+                
     employee_id = int(argv[1])
+    csv_convert = "{}.csv".format(employee_id)
     with open(csv_convert, mode='w', newline=' ') as temp:
         writer = csv.writer(temp, quoting=csv.QUOTE_ALL)
         csv_data = [employee_id, employee_name, complete_tasks, total_tasks]
