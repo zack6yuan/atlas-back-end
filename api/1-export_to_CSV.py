@@ -24,8 +24,6 @@ def employee_statistics(employee_id: int):
         return
 
     complete_tasks = 0
-    total_tasks = 0
-    # filter tasks based on the specific user.
     todos_url = "{}/users/{}/todos".format(base, employee_id)
     todos_request = requests.get(todos_url)
     if todos_request.status_code == 200:
@@ -39,7 +37,7 @@ def employee_statistics(employee_id: int):
     with open(csv_convert, mode='w', newline=' ') as temp:
         writer = csv.writer(temp, quoting=csv.QUOTE_ALL)
         csv_data = [employee_id, employee_name, complete_tasks, total_tasks]
-        writer.writerows(csv_data)
+        writer.writerow(csv_data)
 
 
 if __name__ == "__main__":
