@@ -8,9 +8,9 @@ from sys import argv
 def employee_statistics(employee_id: int):
     """ Method: Format employee information from input
     Arguments:
-        - employee_id(int)
+    - employee_id(int)
     Returns:
-        - Employee data (complete + total tasks)
+    - Employee data (complete + total tasks)
     """
     base = "https://jsonplaceholder.typicode.com"
 
@@ -36,11 +36,11 @@ def employee_statistics(employee_id: int):
 
     """ Method: Export data in JSON format
     Returns:
-        - JSON formatted data:
-            - employee_id(str)
-            - task title
-            - completed (true or false)
-            - employee name
+    - JSON formatted data:
+    - employee_id(str)
+    - task title
+    - completed (true or false)
+    - employee name
     """
     json_list = {
             (employee_id): [{
