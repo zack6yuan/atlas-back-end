@@ -24,6 +24,7 @@ def employee_statistics(employee_id: int):
         return
 
     complete_tasks = 0
+    total_tasks = 0
     todos_url = "{}/users/{}/todos".format(base, employee_id)
     todos_request = requests.get(todos_url)
     if todos_request.status_code == 200:
