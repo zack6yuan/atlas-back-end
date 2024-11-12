@@ -19,7 +19,7 @@ def employee_statistics(employee_id: int):
     if employee_request.status_code == 200:
         employee_data = employee_request.json()
         employee_name = employee_data.get('name')
-    else:    
+    else:
         print("Employee not found...")
         return
 
@@ -44,7 +44,7 @@ def employee_statistics(employee_id: int):
             employee_name,
             todo['completed'],
             total_tasks]
-            )
+        )
         writer.writerows(csv_data)
 
 
