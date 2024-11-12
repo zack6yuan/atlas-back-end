@@ -38,7 +38,7 @@ def employee_statistics(employee_id: int):
         "task": todo['title'],
         "completed": todo['completed'],
         "username": employee_name
-    }]
+    } for todo in todos_data]
 
     json_convert = ("{}.json".format(employee_id))
     with open(json_convert, mode='w') as temp:
