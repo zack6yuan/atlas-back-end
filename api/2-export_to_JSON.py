@@ -42,8 +42,7 @@ def employee_statistics(employee_id: int):
     - completed (true or false)
     - employee name
     """
-    json_list = {
-        (employee_id): [{
+    json_list = {(employee_id): [{
         "task": todo['title'],
         "completed": todo['completed'],
         "username": employee_name
